@@ -64,6 +64,7 @@ const Create = () => {
                 name="status"
                 onChange={getTodoInputData}
               >
+                <option>Select status</option>
                 <option value="pending">Pending</option>
                 <option value="completed">Completed</option>
               </select>
