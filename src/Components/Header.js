@@ -12,6 +12,9 @@ import {
 import MenuIcon from "@mui/icons-material/Menu";
 import { styled, alpha } from "@mui/material/styles";
 import SearchIcon from "@mui/icons-material/Search";
+import { useEffect, useState } from "react";
+import { getTodoData, setDbSearchResultsData } from "../Data/Db";
+import { useNavigate } from "react-router-dom";
 
 const Search = styled("div")(({ theme }) => ({
   marginLeft: 0,
@@ -48,6 +51,26 @@ const StyledInputBase = styled(InputBase)(({ theme }) => ({
 }));
 
 const Header = () => {
+  const [todoData, setTodoData] = useState();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setTodoData(getTodoData);
+  });
+
+  const SearchTodo = (e) => {
+    e.preventDefault();
+    var searchInput = document.getElementById("search").value;
+    console.log(searchInput);
+    var searchItems = [];
+    searchItems = todoData.filter((todo) =>
+      todo.title.toLowerCase().includes(searchInput.toLowerCase())
+    );
+    console.log(searchItems);
+    setDbSearchResultsData(searchItems);
+    navigate("/SearchDetails");
+  };
+
   return (
     <>
       <Box>
@@ -89,10 +112,12 @@ const Header = () => {
               <StyledInputBase
                 placeholder="Search…"
                 inputProps={{ "aria-label": "search" }}
+                id="search"
               />
               <Button
                 variant="contained"
                 sx={{ "&:hover": { backgroundColor: "darkblue" } }}
+                onClick={(e) => SearchTodo(e)}
               >
                 Search
               </Button>

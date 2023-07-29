@@ -2,7 +2,14 @@
 var retArr=[]
 var searchDataArr=[]
 var retString = localStorage.getItem("todoarr");
-retArr = JSON.parse(retString);
+
+if (retString !== null) {
+  try {
+    retArr = JSON.parse(retString);
+  } catch (error) {
+    console.error("Error parsing JSON:", error);
+  }
+}
 
 if(retArr==null){
     retArr=[]
@@ -16,6 +23,10 @@ if(searchDataArr==null){
     searchDataArr=[]
 }
 
+export const getSearchData=()=>{
+    return searchDataArr;
+}
+
 export const getTodoData=()=>{
     return retArr;
 }
@@ -26,7 +37,6 @@ export const getTodoDataByIndex=(index)=>{
 }
 
 export const setDbData = (Arr) => {
-    console.log("call in Db.js");
     let string = JSON.stringify(Arr);
     localStorage.setItem("todoarr", string);
 }

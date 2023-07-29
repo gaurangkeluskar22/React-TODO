@@ -1,16 +1,16 @@
 import { useEffect, useRef, useState } from "react";
-import { getTodoData } from "../Data/Db";
+import { getSearchData } from "../Data/Db";
 import { Stack, Card, Grid, Typography, Box } from "@mui/material";
 import { useNavigate, generatePath } from "react-router-dom";
 import { GestureDetector } from "react-onsenui";
 import { setDbData } from "../Data/Db";
 
-const Home = () => {
+const SearchDetails = () => {
   const [todoData, setTodoData] = useState({});
   const navigate = useNavigate();
 
   useEffect(() => {
-    setTodoData(getTodoData);
+    setTodoData(getSearchData);
   }, []);
 
   const handleProceed = (e, index) => {
@@ -117,4 +117,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default SearchDetails;
