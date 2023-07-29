@@ -61,12 +61,10 @@ const Header = () => {
   const SearchTodo = (e) => {
     e.preventDefault();
     var searchInput = document.getElementById("search").value;
-    console.log(searchInput);
     var searchItems = [];
     searchItems = todoData.filter((todo) =>
       todo.title.toLowerCase().includes(searchInput.toLowerCase())
     );
-    console.log(searchItems);
     setDbSearchResultsData(searchItems);
     navigate("/SearchDetails");
   };

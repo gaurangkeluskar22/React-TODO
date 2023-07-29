@@ -39,7 +39,6 @@ const Create = () => {
       status: data.status,
       id:uuid(),
     };
-    console.log(data.title, data.desc, data.status);
     todoData.push(todoInputData);
     setDbData(todoData);
     alert("Todo has been created!");
