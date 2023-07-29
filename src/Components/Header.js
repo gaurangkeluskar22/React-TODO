@@ -1,32 +1,107 @@
+import {
+  Box,
+  AppBar,
+  Toolbar,
+  IconButton,
+  Typography,
+  InputBase,
+  Button,
+  Grid,
+  Link,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+import { styled, alpha } from "@mui/material/styles";
+import SearchIcon from "@mui/icons-material/Search";
 
+const Search = styled("div")(({ theme }) => ({
+  marginLeft: 0,
+  position: "relative",
+}));
 
-const Header= () =>{
-    return(
-        <>
-            <nav className="navbar navbar-expand-lg navbar-light bg-light">
-                <a className="navbar-brand" href="#">TODO App</a>
-                <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                    <span className="navbar-toggler-icon"></span>
-                </button>
+const SearchIconWrapper = styled("div")(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: "100%",
+  position: "absolute",
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+}));
 
-                <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                    <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                        <a className="nav-link" href="/">Home</a>
-                    </li>
-                    <li className="nav-item">
-                        <a className="nav-link" href="/Create">Create</a>
-                    </li>
-                    </ul>
-                    <form className="form-inline my-2 my-lg-0">
-                    <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search"/>
-                    <button className="btn btn-success my-2 my-sm-0" type="submit">Search</button>
-                    </form>
-                </div>
-                </nav>
-        </>
-    )
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: "inherit",
+  "& .MuiInputBase-input": {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create("width"),
+    width: "100%",
+    [theme.breakpoints.up("xs")]: {
+      width: "10ch",
+    },
+    [theme.breakpoints.up("sm")]: {
+      width: "10ch",
+      "&:focus": {
+        width: "20ch",
+      },
+    },
+  },
+}));
 
-}
+const Header = () => {
+  return (
+    <>
+      <Box>
+        <AppBar position="static">
+          <Toolbar>
+            <Typography
+              variant="h4"
+              noWrap
+              component="div"
+              sx={{ display: { xs: "none", sm: "block" } }}
+            >
+              TODO App
+            </Typography>
+            <Typography
+              sx={{ display: { xs: "none", sm: "block" } }}
+              ml={5}
+              variant="h6"
+            >
+              <Link href="/" sx={{ color: "white", textDecoration: "none" }}>
+                Home
+              </Link>
+            </Typography>
+            <Typography
+              sx={{ flexGrow: 1, display: { xs: "none", sm: "block" } }}
+              ml={5}
+              variant="h6"
+            >
+              <Link
+                href="/Create"
+                sx={{ color: "white", textDecoration: "none" }}
+              >
+                Create
+              </Link>
+            </Typography>
+            <Search>
+              <SearchIconWrapper>
+                <SearchIcon />
+              </SearchIconWrapper>
+              <StyledInputBase
+                placeholder="Search…"
+                inputProps={{ "aria-label": "search" }}
+              />
+              <Button
+                variant="contained"
+                sx={{ "&:hover": { backgroundColor: "darkblue" } }}
+              >
+                Search
+              </Button>
+            </Search>
+          </Toolbar>
+        </AppBar>
+      </Box>
+    </>
+  );
+};
 
 export default Header;
