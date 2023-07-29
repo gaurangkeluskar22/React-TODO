@@ -12,7 +12,7 @@ function App() {
           <Routes>
             <Route exect path="/" element={<Home/>}/>
             <Route  exect path="/Create" element={<Create/>}/>
-            <Route exect path="/Edit" element={<Edit/>}/>
+            <Route exect path="/Edit/:index" element={<Edit/>}/>
           </Routes>
       </BrowserRouter>
     </div>
