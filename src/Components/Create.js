@@ -187,7 +187,7 @@ const Create = () => {
               </FormHelperText>
             </Grid>
             <Grid item xs={12} mt={2}>
-              <Button variant="contained" type="submit" onClick={handleSubmit}>
+              <Button variant="contained" type="submit" onClick={handleSubmit} sx={{width:"100%"}}>
                 Create
               </Button>
             </Grid>
