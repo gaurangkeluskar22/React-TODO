@@ -20,6 +20,10 @@ export const getTodoData=()=>{
     return retArr;
 }
 
+export const getTodoDataByIndex=(index)=>{
+    return retArr[index];
+}
+
 export const setDbData = (Arr) => {
     console.log("call in Db.js");
     let string = JSON.stringify(Arr);
