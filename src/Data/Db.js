@@ -22,6 +22,7 @@ export const getTodoData=()=>{
 
 export const getTodoDataByIndex=(index)=>{
     return retArr[index];
+
 }
 
 export const setDbData = (Arr) => {
