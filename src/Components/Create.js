@@ -139,14 +139,14 @@ const Create = () => {
                       rows={3}
                       autoComplete="off"
                       inputProps={{
-                        maxLength: 100,
+                        maxLength: 300,
                         minLength: 10,
                       }}
                       rules={{
                         required: "Please enter Todo description",
                         maxLength: {
-                          value: 30,
-                          message: "Maximum character length is 100",
+                          value: 300,
+                          message: "Maximum character length is 300",
                         },
                         minLength: {
                           value: 10,
