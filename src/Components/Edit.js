@@ -80,7 +80,7 @@ const Edit = () => {
             pb={5}
           >
             <Grid item xs={12}>
-              <div>Todo Name:</div>
+              <div>Todo Name :</div>
               <FormControl
                 fullWidth
                 sx={{
